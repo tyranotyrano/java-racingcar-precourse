@@ -15,4 +15,8 @@ public class InputScanner {
 	public int scanInt() {
 		return SCANNER.nextInt();
 	}
+
+	public void clear() {
+		SCANNER.nextLine();
+	}
 }
