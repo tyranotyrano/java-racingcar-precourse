@@ -2,6 +2,7 @@ package racingcar;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,7 +33,12 @@ public class CarNameTest {
 	@ParameterizedTest
 	@CsvSource(value = {",:0", ",,:0", "a ,b , c:3", "a,b,c,:3"}, delimiter = ':')
 	void splitCarNameByComma(String input, int count) {
-		List<String> carNames = Arrays.asList(input.split(","));
+		List<String> inputNames = Arrays.asList(input.split(","));
+		List<CarName> carNames = new ArrayList<>();
+		for (String carName : inputNames) {
+			carNames.add(new CarName(carName));
+		}
+
 		Cars cars = new Cars(carNames);
 
 		assertThat(cars.size()).isEqualTo(count);
