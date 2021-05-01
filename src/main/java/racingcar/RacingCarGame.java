@@ -20,6 +20,7 @@ public class RacingCarGame {
 	public void play() {
 		initCarsAndTryCount();
 		moveCars();
+		printRacingWinners();
 	}
 
 	private void initCarsAndTryCount() {
@@ -50,5 +51,9 @@ public class RacingCarGame {
 			cars.move();
 			RacingPrint.printRacingStatus(cars);
 		}
+	}
+
+	private void printRacingWinners() {
+		cars.printRacingWinners();
 	}
 }

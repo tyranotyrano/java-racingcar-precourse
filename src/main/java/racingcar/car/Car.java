@@ -1,5 +1,8 @@
 package racingcar.car;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import racingcar.move.MovingCondition;
 
 public class Car {
@@ -25,5 +28,23 @@ public class Car {
 
 	public String getCarName() {
 		return carName.getName();
+	}
+
+	public MovingDistance getBiggerMovingDistanceThan(MovingDistance maxMovingDistance) {
+		if (movingDistance.getDistance() >= maxMovingDistance.getDistance()) {
+			return movingDistance;
+		}
+
+		return maxMovingDistance;
+	}
+
+	public List<String> getCarNameWhenWinner(MovingDistance maxMovingDistance) {
+		List<String> winnerCarNames = new ArrayList<>();
+
+		if (movingDistance.equals(maxMovingDistance)) {
+			winnerCarNames.add(getCarName());
+		}
+
+		return winnerCarNames;
 	}
 }

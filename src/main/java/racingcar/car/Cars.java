@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import racingcar.move.CarMovingCondition;
+import utils.print.RacingPrint;
 
 public class Cars {
 
@@ -39,5 +40,29 @@ public class Cars {
 
 	public boolean isEmpty() {
 		return cars.isEmpty();
+	}
+
+	public void printRacingWinners() {
+		RacingPrint.printRacingWinners(decideWinnerNames(decideMaxMovingDistance()));
+	}
+
+	private MovingDistance decideMaxMovingDistance() {
+		MovingDistance maxMovingDistance = cars.get(0).getMovingDistance();
+
+		for (Car car : cars) {
+			maxMovingDistance = car.getBiggerMovingDistanceThan(maxMovingDistance);
+		}
+
+		return maxMovingDistance;
+	}
+
+	private List<String> decideWinnerNames(MovingDistance maxMovingDistance) {
+		List<String> winnerNames = new ArrayList<>();
+
+		for (Car car : cars) {
+			winnerNames.addAll(car.getCarNameWhenWinner(maxMovingDistance));
+		}
+
+		return winnerNames;
 	}
 }

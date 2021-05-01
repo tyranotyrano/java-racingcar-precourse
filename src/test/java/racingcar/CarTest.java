@@ -8,6 +8,8 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import racingcar.car.Car;
 import racingcar.car.CarName;
+import racingcar.car.FixedMovingDistance;
+import racingcar.car.MovingDistance;
 import racingcar.move.FixedMovingCondition;
 
 public class CarTest {
@@ -20,5 +22,19 @@ public class CarTest {
 		car.move();
 
 		assertThat(car.getMovingDistance().getDistance()).isEqualTo(movingDistance);
+	}
+
+	@DisplayName("가장 많이 움직인 거리를 추출한다.")
+	@ParameterizedTest
+	@CsvSource(value = {"0:0:0", "0:1:1", "4:0:1", "4:1:1"}, delimiter = ':')
+	void getMaxMovingDistance(int condition, int maxDistance, int finalMaxDistance) {
+		FixedMovingDistance maxMovingDistance = new FixedMovingDistance(maxDistance);
+
+		Car car = new Car(new CarName("붕붕이"), new FixedMovingCondition(condition));
+		car.move();
+
+		MovingDistance finalMovingDistance = car.getBiggerMovingDistanceThan(maxMovingDistance);
+
+		assertThat(finalMovingDistance.getDistance()).isEqualTo(finalMaxDistance);
 	}
 }
