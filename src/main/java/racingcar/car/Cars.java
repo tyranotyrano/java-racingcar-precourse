@@ -26,4 +26,18 @@ public class Cars {
 	public int size() {
 		return this.cars.size();
 	}
+
+	public void move() {
+		for (Car car : cars) {
+			car.move();
+		}
+	}
+
+	public List<Car> getCars() {
+		return cars;
+	}
+
+	public boolean isEmpty() {
+		return cars.isEmpty();
+	}
 }

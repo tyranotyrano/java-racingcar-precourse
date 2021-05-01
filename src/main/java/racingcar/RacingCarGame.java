@@ -1,0 +1,54 @@
+package racingcar;
+
+import racingcar.car.Cars;
+import racingcar.inputscan.CarNameScanner;
+import racingcar.inputscan.TryCountInputScanner;
+import utils.print.RacingPrint;
+
+public class RacingCarGame {
+	private final CarNameScanner carNameScanner;
+	private final TryCountInputScanner tryCountInputScanner;
+	
+	private Cars cars;
+	private TryCount tryCount;
+
+	public RacingCarGame() {
+		this.carNameScanner = new CarNameScanner();
+		this.tryCountInputScanner = new TryCountInputScanner();
+	}
+
+	public void play() {
+		initCarsAndTryCount();
+		moveCars();
+	}
+
+	private void initCarsAndTryCount() {
+		initCars();
+		initTryCount();
+	}
+
+	private void initCars() {
+		cars = new Cars(carNameScanner.scanCarNames());
+	}
+
+	private void initTryCount() {
+		if (cars.isEmpty()) {
+			return;
+		}
+
+		tryCount = tryCountInputScanner.scanTryCount();
+	}
+
+	private void moveCars() {
+		if (cars.isEmpty() || tryCount.isZero()) {
+			return;
+		}
+
+		RacingPrint.printRacingResult();
+
+		for (int i = 0; i < tryCount.getCount(); i++) {
+			cars.move();
+			RacingPrint.printRacingStatus(cars);
+		}
+	}
+}

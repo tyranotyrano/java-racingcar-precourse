@@ -20,4 +20,8 @@ public class CarName {
 			throw new IllegalArgumentException(ErrorMessage.CAR_NAME_LENGTH_MUST_HAVE_1_OR_MORE_AND_5_OR_LESS);
 		}
 	}
+
+	public String getName() {
+		return carName;
+	}
 }

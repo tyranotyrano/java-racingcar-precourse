@@ -15,4 +15,12 @@ public class TryCount {
 			throw new IllegalArgumentException(ErrorMessage.TRY_COUNT_MUST_HAVE_0_OR_MORE);
 		}
 	}
+
+	public int getCount() {
+		return tryCount;
+	}
+
+	public boolean isZero() {
+		return tryCount == 0;
+	}
 }
