@@ -19,6 +19,6 @@ public class CarTest {
 		Car car = new Car(new CarName("붕붕이"), new FixedMovingCondition(condition));
 		car.move();
 
-		assertThat(car.getMovingDistance()).isEqualTo(movingDistance);
+		assertThat(car.getMovingDistance().getDistance()).isEqualTo(movingDistance);
 	}
 }

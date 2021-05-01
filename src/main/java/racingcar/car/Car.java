@@ -19,8 +19,8 @@ public class Car {
 		}
 	}
 
-	public int getMovingDistance() {
-		return movingDistance.getDistance();
+	public MovingDistance getMovingDistance() {
+		return movingDistance;
 	}
 
 	public String getCarName() {
