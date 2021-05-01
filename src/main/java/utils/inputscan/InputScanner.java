@@ -11,4 +11,8 @@ public class InputScanner {
 	public List<String> scanStringSplitByComma() {
 		return Arrays.asList(SCANNER.nextLine().split(COMMA));
 	}
+
+	public int scanInt() {
+		return SCANNER.nextInt();
+	}
 }
