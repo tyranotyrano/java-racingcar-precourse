@@ -18,14 +18,13 @@ public class RacingCarGame {
 	}
 
 	public void play() {
-		initCarsAndTryCount();
-		moveCars();
-		printRacingWinners();
-	}
-
-	private void initCarsAndTryCount() {
 		initCars();
 		initTryCount();
+
+		if (!cars.isEmpty()) {
+			moveCars();
+			printRacingWinners();
+		}
 	}
 
 	private void initCars() {
@@ -34,6 +33,7 @@ public class RacingCarGame {
 
 	private void initTryCount() {
 		if (cars.isEmpty()) {
+			tryCount = new TryCount(0);
 			return;
 		}
 
@@ -41,7 +41,7 @@ public class RacingCarGame {
 	}
 
 	private void moveCars() {
-		if (cars.isEmpty() || tryCount.isZero()) {
+		if (cars.isEmpty()) {
 			return;
 		}
 
