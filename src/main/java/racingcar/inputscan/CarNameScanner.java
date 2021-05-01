@@ -3,7 +3,7 @@ package racingcar.inputscan;
 import java.util.ArrayList;
 import java.util.List;
 
-import racingcar.CarName;
+import racingcar.car.CarName;
 import utils.ErrorMessage;
 import utils.inputscan.InputScanner;
 

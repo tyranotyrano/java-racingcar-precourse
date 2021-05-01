@@ -6,6 +6,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import racingcar.car.Car;
+import racingcar.car.CarName;
 import racingcar.move.FixedMovingCondition;
 
 public class CarTest {

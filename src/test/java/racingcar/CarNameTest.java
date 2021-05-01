@@ -12,6 +12,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import racingcar.car.CarName;
+import racingcar.car.Cars;
+
 public class CarNameTest {
 
 	@DisplayName("자동차 이름이 null, 빈 문자열, 5자 초과이면 예외 발생한다.")
