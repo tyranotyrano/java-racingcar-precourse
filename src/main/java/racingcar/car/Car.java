@@ -12,7 +12,7 @@ public class Car {
 
 	public Car(CarName carName, MovingCondition movingCondition) {
 		this.carName = carName;
-		this.movingDistance = new MovingDistance();
+		this.movingDistance = new CarMovingDistance();
 		this.movingCondition = movingCondition;
 	}
 
