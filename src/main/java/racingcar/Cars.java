@@ -3,6 +3,8 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 
+import racingcar.move.CarMovingCondition;
+
 public class Cars {
 
 	private final List<Car> cars;
@@ -15,7 +17,7 @@ public class Cars {
 		List<Car> cars = new ArrayList<>();
 
 		for (CarName carName : carNames) {
-			cars.add(new Car(carName));
+			cars.add(new Car(carName, new CarMovingCondition()));
 		}
 
 		return cars;
