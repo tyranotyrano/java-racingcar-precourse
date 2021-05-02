@@ -43,10 +43,18 @@ public class Cars {
 	}
 
 	public void printRacingWinners() {
+		if (isEmpty()) {
+			return;
+		}
+
 		RacingPrint.printRacingWinners(decideWinnerNames(decideMaxMovingDistance()));
 	}
 
 	private MovingDistance decideMaxMovingDistance() {
+		if (isEmpty()) {
+			return new CarMovingDistance();
+		}
+
 		MovingDistance maxMovingDistance = cars.get(0).getMovingDistance();
 
 		for (Car car : cars) {

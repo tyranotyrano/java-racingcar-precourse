@@ -20,11 +20,8 @@ public class RacingCarGame {
 	public void play() {
 		initCars();
 		initTryCount();
-
-		if (!cars.isEmpty()) {
-			moveCars();
-			printRacingWinners();
-		}
+		moveCars();
+		printRacingWinners();
 	}
 
 	private void initCars() {
@@ -54,6 +51,10 @@ public class RacingCarGame {
 	}
 
 	private void printRacingWinners() {
+		if (cars.isEmpty()) {
+			return;
+		}
+
 		cars.printRacingWinners();
 	}
 }
