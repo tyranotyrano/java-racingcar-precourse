@@ -15,12 +15,12 @@ public class TryCountInputScanner {
 			return new TryCount(INPUT_SCANNER.scanInt());
 		} catch (Exception e) {
 			resetForRescanTryCount();
-			return this.scanTryCount();
+			return scanTryCount();
 		}
 	}
 
 	private void resetForRescanTryCount() {
 		System.out.println(ErrorMessage.TRY_COUNT_MUST_HAVE_0_OR_MORE);
-		INPUT_SCANNER.clear();
+		INPUT_SCANNER.clearForScanInt();
 	}
 }
