@@ -54,7 +54,6 @@ public class RacingCarGame {
 		if (cars.isEmpty()) {
 			return;
 		}
-
-		cars.printRacingWinners();
+		RacingPrint.printRacingWinners(cars.chooseRacingWinners());
 	}
 }

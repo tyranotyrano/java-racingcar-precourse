@@ -19,8 +19,4 @@ public class TryCount {
 	public int getCount() {
 		return tryCount;
 	}
-
-	public boolean isZero() {
-		return tryCount == 0;
-	}
 }
