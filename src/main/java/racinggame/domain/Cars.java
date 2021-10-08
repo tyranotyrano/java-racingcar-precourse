@@ -18,6 +18,12 @@ public class Cars {
 		return new Cars(cars);
 	}
 
+	public void move() {
+		for (Car car : cars) {
+			car.move();
+		}
+	}
+
 	public int getSize() {
 		return this.cars.size();
 	}
