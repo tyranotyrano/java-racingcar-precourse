@@ -10,10 +10,13 @@ import java.util.List;
 import nextstep.utils.Console;
 import racinggame.constant.ErrorMessage;
 import racinggame.domain.CarName;
+import racinggame.domain.TryCount;
 
 public class GameInputView {
 	private static final String CAR_NAME_INPUT_GUIDE_MESSAGE =
 		"경주할 자동차 이름을 입력하세요.(이름은 쉼표(" + CAR_NAME_SEPARATOR + ") 기준으로 구분)";
+	private static final String TRY_COUNT_INPUT_MESSAGE = "시도할 횟수는 몇회인가요?";
+	private static final String NUMBER_FROM_0_to_9_REG_EXP = "^[0-9]+$";
 
 	public List<CarName> inputCarNames() {
 		System.out.println(CAR_NAME_INPUT_GUIDE_MESSAGE);
@@ -26,6 +29,18 @@ public class GameInputView {
 			System.out.println(INVALID_CAR_NAME_LENGTH);
 			return inputCarNames();
 		}
+	}
+
+	public TryCount inputTryCount() {
+		System.out.println(TRY_COUNT_INPUT_MESSAGE);
+		String tryCount = Console.readLine();
+
+		if (isValidTryCount(tryCount)) {
+			return TryCount.of(convertToInteger(tryCount));
+		}
+
+		System.out.println(INVALID_INPUT_TRY_COUNT);
+		return inputTryCount();
 	}
 
 	private void validateInputCarNames(String carNameBundle) {
@@ -50,5 +65,16 @@ public class GameInputView {
 		if (Arrays.asList(splitCarNames).isEmpty()) {
 			throw new IllegalArgumentException(ErrorMessage.INVALID_CAR_NAME_LENGTH);
 		}
+	}
+
+	private boolean isValidTryCount(String tryCount) {
+		if (tryCount == null || tryCount.isEmpty()) {
+			return false;
+		}
+		return tryCount.matches(NUMBER_FROM_0_to_9_REG_EXP);
+	}
+
+	private int convertToInteger(String tryCount) {
+		return Integer.parseInt(tryCount);
 	}
 }
