@@ -14,8 +14,15 @@ public class RacingGame {
 	}
 
 	public void run() {
-		for (int i = 0; i < this.tryCount.getCount(); i++) {
-			this.cars.move();
-		}
+		this.cars.move();
+		this.tryCount.reduce();
+	}
+
+	public boolean isEndGame() {
+		return tryCount.isEndGame();
+	}
+
+	public Cars getCars() {
+		return this.cars;
 	}
 }
