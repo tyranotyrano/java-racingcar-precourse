@@ -18,6 +18,10 @@ public class Cars {
 		return new Cars(cars);
 	}
 
+	public int getSize() {
+		return this.cars.size();
+	}
+
 	private static List<Car> createCarsByCarNames(List<CarName> carNames) {
 		List<Car> cars = new ArrayList<>();
 		for (CarName carName : carNames) {
