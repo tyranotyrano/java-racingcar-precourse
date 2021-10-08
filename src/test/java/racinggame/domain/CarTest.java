@@ -20,7 +20,7 @@ class CarTest {
 	void validateCarCreation(String name, int randomNumber) {
 		// given
 		// when
-		Car car = Car.of(name, CarMovingCondition.createBy(new RacingCarRandomGenerator()));
+		Car car = Car.of(CarName.of(name), CarMovingCondition.createBy(new RacingCarRandomGenerator()));
 		// then
 		assertAll(
 			() -> assertEquals(name, car.getName().getName()),
@@ -36,7 +36,7 @@ class CarTest {
 		// when
 		// then
 		assertThatIllegalArgumentException()
-			.isThrownBy(() -> Car.of(name, CarMovingCondition.createBy(new TestNumberGenerator(randomNumber))))
+			.isThrownBy(() -> Car.of(CarName.of(name), CarMovingCondition.createBy(new TestNumberGenerator(randomNumber))))
 			.withMessageContaining(ErrorMessage.INVALID_CAR_NAME_LENGTH);
 	}
 
@@ -45,7 +45,7 @@ class CarTest {
 	@CsvSource(value = {"a:0:0", "abc:3:0", "abc1:4:1", "abc12:9:1"}, delimiter = ':')
 	void moveWhenRandomNumberIsMoreThan4(String name, int randomNumber, int resultDistance) {
 		// given
-		Car car = Car.of(name, CarMovingCondition.createBy(new TestNumberGenerator(randomNumber)));
+		Car car = Car.of(CarName.of(name), CarMovingCondition.createBy(new TestNumberGenerator(randomNumber)));
 		// when
 		car.move();
 		// then

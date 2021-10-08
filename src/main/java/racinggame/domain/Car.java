@@ -13,8 +13,8 @@ public class Car {
 		this.distance = Distance.create();
 	}
 
-	public static Car of(String name, MovingCondition movingCondition) {
-		return new Car(CarName.of(name), movingCondition);
+	public static Car of(CarName carName, MovingCondition movingCondition) {
+		return new Car(carName, movingCondition);
 	}
 
 	public void move() {
