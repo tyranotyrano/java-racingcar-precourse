@@ -18,21 +18,25 @@ public class Cars {
 		return new Cars(cars);
 	}
 
-	public void move() {
-		for (Car car : cars) {
-			car.move();
-		}
-	}
-
-	public int getSize() {
-		return this.cars.size();
-	}
-
 	private static List<Car> createCarsByCarNames(List<CarName> carNames) {
 		List<Car> cars = new ArrayList<>();
 		for (CarName carName : carNames) {
 			cars.add(Car.of(carName, CarMovingCondition.createBy(new RacingCarRandomGenerator())));
 		}
 		return cars;
+	}
+
+	public void move() {
+		for (Car car : cars) {
+			car.move();
+		}
+	}
+
+	public Car getCar(int index) {
+		return this.cars.get(index);
+	}
+
+	public int getSize() {
+		return this.cars.size();
 	}
 }
