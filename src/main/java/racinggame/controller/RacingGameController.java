@@ -3,6 +3,7 @@ package racinggame.controller;
 import racinggame.domain.Cars;
 import racinggame.domain.RacingGame;
 import racinggame.domain.TryCount;
+import racinggame.domain.Winners;
 import racinggame.view.GameInputView;
 import racinggame.view.GamePrintView;
 
@@ -21,6 +22,7 @@ public class RacingGameController {
 		RacingGame racingGame = RacingGame.of(cars, tryCount);
 
 		runGame(racingGame);
+		printWinners(racingGame);
 	}
 
 	private void runGame(RacingGame racingGame) {
@@ -30,5 +32,10 @@ public class RacingGameController {
 			racingGame.run();
 			this.printView.printRacingStatus(racingGame.getCars());
 		}
+	}
+
+	private void printWinners(RacingGame racingGame) {
+		Winners winners = Winners.createBy(racingGame.getCars(), racingGame.getMaxDistance());
+		this.printView.printWinners(winners);
 	}
 }
