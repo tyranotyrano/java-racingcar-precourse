@@ -23,6 +23,10 @@ public class Car {
 		}
 	}
 
+	public boolean isWinner(Distance maxDistance) {
+		return this.distance.equals(maxDistance);
+	}
+
 	public CarName getName() {
 		return name;
 	}

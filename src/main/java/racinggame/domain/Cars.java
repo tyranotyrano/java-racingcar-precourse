@@ -32,8 +32,8 @@ public class Cars {
 		}
 	}
 
-	public Car getCar(int index) {
-		return this.cars.get(index);
+	public List<Car> getCars() {
+		return this.cars;
 	}
 
 	public int getSize() {

@@ -25,4 +25,13 @@ public class RacingGame {
 	public Cars getCars() {
 		return this.cars;
 	}
+
+	public Distance getMaxDistance() {
+		Distance maxDistance = Distance.create();
+		for (Car car : this.cars.getCars()) {
+			maxDistance = Distance.of(Math.max(maxDistance.getDistance(), car.getDistance().getDistance()));
+		}
+
+		return maxDistance;
+	}
 }

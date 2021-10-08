@@ -11,8 +11,16 @@ public class Distance {
 		this.distance = INIT_DISTANCE;
 	}
 
+	private Distance(int distance) {
+		this.distance = distance;
+	}
+
 	public static Distance create() {
 		return new Distance();
+	}
+
+	public static Distance of(int distance) {
+		return new Distance(distance);
 	}
 
 	public void increase() {

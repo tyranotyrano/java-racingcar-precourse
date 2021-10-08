@@ -14,8 +14,7 @@ public class GamePrintView {
 		System.out.println(RACING_RESULT_TITLE);
 	}
 	public void printRacingStatus(Cars cars) {
-		for (int i = 0; i < cars.getSize(); i++) {
-			Car car = cars.getCar(i);
+		for (Car car : cars.getCars()) {
 			System.out.printf(RACING_STATUS_FORMAT, car.getName().getName(), calculateDistance(car.getDistance()));
 		}
 		newLine();
